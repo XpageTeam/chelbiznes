@@ -1,0 +1,672 @@
+[v-cloak]
+	display: none
+
+body.frp
+
+	.personal-account
+		display: block
+
+		&__aside, &__content
+			width: auto
+
+		&__content
+			padding: 0
+			margin: 30px 0 0
+
+		&__nav
+
+			&-list
+				display: flex
+				flex-wrap: wrap
+
+				.nav__item
+					flex: 1 1 auto
+					text-align: center
+
+					&:not(:last-child)
+						border-right: 1px solid #d6e0e7
+
+.step-list
+
+	ul
+		display: flex
+
+	li
+
+		&:not(:last-child)
+			border-right: 1px solid #d6e0e7
+
+	.active
+
+		a
+			color: #fff
+			background: $main-color
+
+	a
+		display: block
+		background: #e9eff4
+		color: #0f2645
+		padding: 12px 15px
+
+.step-container
+	padding: 35px 15px 30px
+	border: 1px solid #d6e0e7
+
+.step-content
+
+	&--0, &--1
+		margin: 0 0 -30px -15px
+
+	&--0
+		display: flex
+		flex-wrap: wrap
+
+		.frp-group
+
+			&-block
+				width: calc((100% - 15px * 3) / 3)
+
+	&--1
+
+		.frp-group
+
+			&-content
+				display: flex
+				flex-wrap: wrap
+				align-items: flex-end
+				margin: 0 0 -20px -15px
+
+				.field
+					width: calc((100% - 15px * 6) / 6)
+					margin: 0 0 20px 15px
+
+					&--checkbox
+						width: calc(100% - 15px)				
+
+	&:empty
+		display: none
+
+.frp-group
+
+	&-block
+		margin: 0 0 30px 15px
+		position: relative
+		border: 1px solid #d6e0e7
+		padding: 34px 20px 20px
+		box-sizing: border-box
+		transition: border-color .3s ease
+
+		&:focus-within
+			border-color: $main-color
+
+		&--contacts
+			width: calc(100% - 15px) !important
+
+			.default-btn
+				margin: 25px 0 0
+
+		&--7
+
+			.frp-group-content
+
+				.field:not(.field--years_indicators)
+					width: calc((100% - 15px * 4) / 4)
+
+	&-name
+		position: absolute
+		color: #fff
+		background: $main-color
+		left: 20px
+		top: -16px
+		padding: 5px 15px
+
+	&-content
+
+		.default-btn
+			margin: 25px 0 0
+
+.field
+
+	&:not(:first-child)
+		margin: 10px 0 0
+
+	&:not(.field--checkbox):not(.field--radio)
+		display: flex
+		flex-direction: column-reverse
+
+		textarea
+			flex: 1 1 auto
+
+		input, select, textarea
+			border: 1px solid
+			transition: border-color .3s ease
+			min-height: 40px
+
+			&:not(:hover), &:not(:focus)
+				border-color: #d6e0e7
+
+			&:hover, &:focus
+				border-color: $main-color
+
+			&[readonly]
+				background: #dedede
+
+		select
+			padding: 0 25px 0 10px
+			background: url("../img/ico-select-arrow.png") right 10px center no-repeat
+
+		input
+			padding: 0 10px
+
+		label
+			margin-bottom: 4px
+			font-size: 14px
+
+.field
+
+	[required]
+
+		+ label
+
+			&:after
+				content: "*"
+				color: red
+
+	&--years_indicators
+		width: calc(100% - 15px) !important
+
+		td, th
+			vertical-align: middle
+			font-size: 14px
+			padding: 15px 10px
+
+			&:first-child
+				width: 550px
+				padding-left: 0 !important
+
+			&:last-child
+				padding-right: 0 !important
+
+			&:not(:first-child)
+				text-align: center
+
+				input
+					text-align: center
+
+			&:last-child
+				
+				input
+					width: 100%
+
+		input[type="text"]
+			width: 65px
+
+.table-title
+	font-weight: bold
+	font-size: 16px
+	max-width: 800px
+	display: inline-block
+
+.frp-group-content
+
+	table
+		font-size: 14px
+
+	thead tr:first-child th
+		text-align: center
+
+	thead tr:first-child th, td:first-child
+		padding-left: 0
+		max-width: 900px
+
+	thead
+		font-size: 12px
+
+		tr
+
+			&:not(:first-child)
+
+				th
+					border-top: 1px solid $border-color
+	
+	thead tr:nth-child(2) th, td:nth-child(2)
+		width: 250px
+
+	th
+		text-align: center
+
+	th, td
+		vertical-align: middle
+		padding: 10px 2px
+
+		&:last-child
+			padding-right: 0
+
+	td
+
+		&:not(:nth-child(2)):not(:first-child)
+			text-align: center
+
+		input[type="text"]
+			width: 65px
+
+		input, select, textarea
+			border: 1px solid
+			transition: border-color .3s ease
+			min-height: 40px
+
+			&:not(:hover), &:not(:focus)
+				border-color: #d6e0e7
+
+			&:hover, &:focus
+				border-color: $main-color
+
+			&[readonly]
+				background: #dedede
+
+		select
+			background: url("../img/ico-select-arrow.png") right 10px center no-repeat
+
+.contacts-row
+	display: flex
+	margin: 0 0 -15px -15px
+
+	&:not(:first-child)
+		margin-top: 15px
+
+	.field
+		width: calc((100% - 18px * 7) / 7)
+		margin: 0 0 15px 15px
+
+	.delete-link
+		margin: 23px 0 0 5px
+
+.frp-group-content:empty
+
+	+ .default-btn
+		margin: 0 !important
+
+.delete-link
+	text-indent: -9999px
+	overflow: hidden
+	display: inline-block
+	+size(35px)
+	background: url("../img/ico-delete.svg") center no-repeat
+	background-size: contain
+
+.subcontractors-row
+	width: calc(100% - 15px)
+	display: grid
+	margin-left: 15px !important
+	grid-gap: 20px 15px
+	grid-template-areas: "collaborator type desc" "price type desc"
+	position: relative
+
+	&:not(:first-child)
+		margin: 30px 0 0
+
+	.delete-link
+		position: absolute
+		top: -13px
+		right: -13px
+		+size(25px)
+
+	.field
+		width: auto !important
+		margin: 0 !important
+
+		&--text
+			grid-area: collaborator
+
+			&:nth-last-child(2), &:last-child
+				grid-area: price
+
+		&--textarea
+
+			&:nth-child(2)
+				grid-area: type
+
+			&:nth-child(3)
+				grid-area: desc
+
+
+@media (max-width: 1280px)
+	.step-content
+
+		&--0
+
+
+			.frp-group
+
+				&-block
+					width: calc((100% - 15px * 2) / 2)
+
+	.contacts-row
+		flex-wrap: wrap
+
+		&:not(:last-child)
+			border-bottom: 1px solid $border-color
+			margin-bottom: 0
+
+		.field, .delete-link
+			width: calc((100% - 15px * 4) / 4)
+
+		.delete-link
+			text-indent: 0
+			text-align: center
+			color: #fff
+			display: flex
+			justify-content: center
+			align-items: center
+			background: #f23a2c
+			margin-top: 22px
+			margin-left: 15px
+			padding: 2px 0 3px
+	
+	.step-content
+
+		&--1 
+
+			.frp-group-content 
+
+				.field
+					width: calc((100% - 15px * 4) / 4)
+	
+	.frp-group
+
+		&-content 
+
+			table
+				display: flex
+				flex-direction: column
+
+			tfoot
+				order: 1
+
+			tbody, tfoot, td
+				display: block
+
+			td
+				box-sizing: border-box
+
+				&.full-width
+					width: calc(100% - 15px) !important
+					font-weight: bold
+					font-size: 18px
+
+				&[data-title]
+
+					&:before
+						display: block
+						content: attr(data-title)
+						margin: 0 0 7px
+
+				&.itog-td
+					width: calc((100% - 15px * 2) / 2) !important
+					order: 1
+
+			thead
+				display: none
+	
+			tr
+				display: flex
+				align-items: flex-end
+
+				&:not(.title-row)
+					flex-wrap: wrap
+					margin: 0 0 0 -15px
+					border-bottom: 1px solid $border-color
+
+					td
+						width: calc((100% - 15px * 3) / 3)
+						margin: 0 0 0 15px
+						text-align: left !important
+						display: flex
+						flex-direction: column
+						justify-content: space-between
+
+						input[type="text"], select, textarea
+							width: 100%
+
+				&.title-row
+					
+					td
+
+						&:not(:first-child)
+							flex: 1 1 auto
+
+				td
+
+					&:empty
+						display: none
+
+				.delete-link
+					text-align: center
+					color: #fff
+					background: #f23a2c
+					text-indent: 0
+					width: auto
+					height: 40px
+					display: flex
+					justify-content: center
+					align-items: center
+
+					&:before
+						content: "-"
+
+	.add-btn
+		display: flex
+		align-items: center
+		justify-content: center
+		text-align: center
+		font-weight: 300
+		width: auto
+		display: inline-block
+		margin: 10px 0 0
+
+		&:after
+			content: "Добавить"
+
+	.add-td
+		font-weight: bold
+		flex-direction: column-reverse !important
+		justify-content: space-between
+
+	.checkbox-td
+		width: calc(100% - 15px) !important
+
+		.form-item--checkbox-group
+			display: flex
+			flex-wrap: wrap
+			margin: 0 0 -15px -15px
+
+			.form-item-checkbox
+				width: calc((100% - 15px * 3) / 3)
+				margin: 0 0 15px 15px
+
+@media (max-width: 1000px)
+	.step-content
+
+		&--1 
+
+			.frp-group
+
+				&-content 
+
+					.field
+						width: calc((100% - 15px * 2) / 2)
+
+	.step-list
+
+		ul
+			flex-wrap: wrap
+
+			li
+				width: 50%
+				box-sizing: border-box
+				border-right: 1px solid #d6e0e7
+
+				&:nth-child(even)
+					border-left: 1px solid #d6e0e7
+
+				&:not(:first-child):not(:nth-child(2))
+					border-top: 1px solid #d6e0e7
+
+	.subcontractors-row
+		grid-template-areas: "collaborator price" "type desc"
+
+	.frp-group-block--7 .frp-group-content .field:not(.field--years_indicators)
+		width: calc((100% - 15px * 2) / 2)
+
+	.field
+
+		&--years_indicators
+
+			thead
+				display: none
+
+			table, tbody, td
+				display: block
+
+			tr
+				display: flex
+				flex-wrap: wrap
+
+			td
+
+				&:first-child
+					width: 100%
+
+				&:not(:first-child)
+					width: auto !important
+
+					&[data-title]
+						display: flex
+						flex-direction: column
+						align-items: flex-start
+
+						&:before
+							content: attr(data-title) ":"
+							margin: 0 0 4px
+
+				&:last-child
+					margin-left: auto
+
+	.frp-group-content 
+
+		tr
+
+			&:not(.title-row) 
+
+				td
+					width: calc((100% - 15px * 2) / 2)
+
+@media (max-width: 660px)
+	.step-container
+		padding: 0
+		border: none
+		margin: 20px 0 0
+
+	.frp-group-content 
+
+		tr
+
+			&:not(.title-row) 
+
+				td
+					width: calc(100% - 15px) !important
+
+	.step-list
+
+		ul
+			flex-wrap: wrap
+
+			li
+				width: 100%
+				border:
+					left: 1px solid #d6e0e7 !important
+					right: 1px solid #d6e0e7 !important
+					top: 1px solid #d6e0e7 !important
+
+	.subcontractors-row
+		grid-template-areas: "collaborator" "price" "type" "desc"
+
+	.step-content
+
+		&--1 
+
+			.frp-group
+
+				&-content 
+
+					.field
+						width: calc(100% - 15px)
+
+	.frp-group
+
+		&-name
+			position: static
+			margin: -20px -15px 15px
+
+		&-block
+			padding: 20px 15px
+
+			&--contacts
+				width: auto !important
+				margin: 20px 0 0 !important
+
+	.frp-group-block--7 .frp-group-content .field:not(.field--years_indicators)
+		width: calc(100% - 15px)
+
+
+
+	.step-content
+
+		&--0
+			margin: 0
+			display: block
+
+			.frp-group
+
+				&-block
+					width: auto
+					margin: 0
+
+					&:not(:last-child)
+						margin: 20px 0 0
+
+	.field--years_indicators td:last-child
+		width: 100% !important
+
+		input
+			width: 100%
+
+	.contacts-row
+		display: block
+		margin: 0
+
+		&:not(:last-child)
+			border-bottom: 1px solid $border-color
+			margin-bottom: 0
+
+		.field, .delete-link
+			width: auto
+			margin: 0
+
+			&:not(:first-child)
+				margin: 10px 0 0
+
+		.delete-link
+			text-indent: 0
+			text-align: center
+			color: #fff
+			display: flex
+			justify-content: center
+			align-items: center
+			background: #f23a2c
+			padding: 2px 0 3px
+
+	.default-btn
+		padding: 8px 14px 9px
+		width: 100%
+		box-sizing: border-box

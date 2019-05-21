@@ -1,0 +1,112 @@
+html
+	head
+		meta(charset="utf-8")
+		title Chelbiznes
+		meta(http-equiv="X-UA-Compatible" content="IE=edge")
+		meta(name="viewport" content="width=device-width, user-scalable=no, initial-scale=1")
+		link(href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,700" rel="stylesheet")
+		meta(name="description")
+		link(rel="shortcut icon" href="/favicon.ico" type="image/x-icon")
+		each name in ["common", "jquery-ui.min", "jquery.fancybox", "fonts", "forms", "ui-slider", "slick", "main", "main_data"]
+			link(rel="stylesheet" href="css/"+name+".css")
+	body.main
+		#popum-menu(style="display: none")
+			.popup-menu__wrap
+				table.popup-menu__content
+					tbody.popup-nav__list
+						tr.popup-nav__row
+							td.popup-nav__cell
+								a.menu__item.menu__item--link(href="#")
+									.menu__item-ico
+										img(src="img/ico-message.png", alt="") 
+									span Бесплатные консультации по всем вопросам ведения бизнеса
+							td.popup-nav__cell
+								a.menu__item.menu__item--link(href="#")
+									.menu__item-ico
+										img(src="img/ico-blank.png", alt="") 
+									span Поручительство по банковским кредитам при недостаточности залога
+						tr.popup-nav__row
+							td.popup-nav__cell
+								a.menu__item.menu__item--link(href="#")
+									.menu__item-ico
+										img(src="img/ico-head.png", alt="") 
+									span Образовательный проект бля тех, кто открывает свой бизнес “Азбука предпринимателя” 
+							td.popup-nav__cell
+								a.menu__item.menu__item--link(href="#")
+									.menu__item-ico
+										img(src="img/ico-razrabotka.png", alt="") 
+									span Разработка технологических решений на производстве
+						tr.popup-nav__row
+							td.popup-nav__cell
+								a.menu__item.menu__item--link(href="#")
+									.menu__item-ico
+										img(src="img/ico-blank2.png", alt="") 
+									span Образовательный проект для развития Вашего бизнеса “Школа предпринимательства”
+							td.popup-nav__cell 
+								a.menu__item.menu__item--link(href="#")
+									.menu__item-ico
+										img(src="img/ico-sodeystvie.png", alt="") 
+									span Содействие в объединении производственных предприятий в кластер
+						tr.popup-nav__row 
+							td.popup-nav__cell 
+								a.menu__item.menu__item--link(href="#")
+									.menu__item-ico
+										img(src="img/ico-man.png", alt="") 
+									span Тренинги, семинары и мастер-классы от ведущих бизнес-тренеров России 
+							td.popup-nav__cell
+								a.menu__item.menu__item--link(href="#")
+									.menu__item-ico
+										img(src="img/ico-zavod.png", alt="")
+									span Финансирование проектов развития промышленных предприятий
+						tr.popup-nav__row
+							td.popup-nav__cell
+								a.menu__item.menu__item--link(href="#")
+									.menu__item-ico
+										img(src="img/ico-pay.png", alt="")
+									span Получение кредитов на льготных условиях 
+							td.popup-nav__cell
+								a.menu__item.menu__item--link(href="#")
+									.menu__item-ico
+										img(src="img/ico-world.png", alt="")
+									span Вывод продуктов на международный рынок 
+						tr.popup-nav__row
+							td.popup-nav__cell
+								a.menu__item.menu__item--link(href="#")
+									.menu__item-ico
+										img(src="img/ico-home.png", alt="")
+									span МФЦ для бизнеса с комфортом
+							td.popup-nav__cell
+								a.menu__item.menu__item--link(href="#")
+									.menu__item-ico
+										img(src="img/ico-stairs.png", alt="")
+									span Сопровождение инвестиционных проектов
+
+		header.header
+			.wrapper
+				.header-special
+					a.header-special__link(href="#") Версия для слабовидящих
+					.header-special__links-cont
+						a.header-special__links-link(href="#") Вход
+						a.header-special__links-link(href="#") Регистрация
+				.header-main
+					a.header-main__logo(href="#")
+						img.header-main__logo-img(src="img/logo-new.png" alt="")
+					.header-main__search
+						form
+							.header-main__search-form
+								input.header-main__search-input(type="text" required)
+								input.header-main__search-submit(type="submit" value="Поиск")
+					.header-main__contact
+						address.header-main__contact-phone
+							a.header-main__contact-phone-link(href="tel:8 800 707-24-74") 8 800 707-24-74
+						.header-main__contact-btn-cont
+							a.header-main__contact-btn.fancybox(href="#") Оставить заявку
+			nav.header__menu
+				.wrapper
+					.header__menu-cont
+						ul.header__menu-list
+							li.header__menu-el
+								a.header__menu-link.fancybox.active(href="#popum-menu") Получить поддержку
+							each link in ["Горячая линия", "Новости", "Календарь мероприятий", "Получатели поддержки", "Нормативные правовые акты", "Общественные организации", "Контакты"]
+								li.header__menu-el
+									a.header__menu-link(href="#")=link

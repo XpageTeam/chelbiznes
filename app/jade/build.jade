@@ -1,0 +1,191 @@
+include inc/header.jade
+#content
+	.wrapper
+		.main-content
+			.bread-crumbs
+				a.bread-crumbs__link(href="#") Главная
+				span.bread-crumbs__this Микрозайм «Производи»
+			h1 Микрозайм «Производи»
+			.main-top
+				.main-top__left
+					.calc__cont
+						.calc__top-list
+							.text-page
+								b Субъект поддержки:
+								p субъекты малого и среднего предпринимательства, зарегистрированные и осуществляющие производственную деятельность (производство, обработка) на территории Челябинской области.
+								p срок деятельности (регистрации): не менее 12 мес.
+								b Целевое использование:
+								ul
+									li инвестиционные цели, приобретение нового высокотехнологического и/ или инновационного оборудования, у завода изготовителя или официального дилера.
+								b Размер и срок займа:
+								p от 500 000 рублей до 5 000 000 рублей, но не более 50% стоимости приобретаемого имущества, указанной в договоре поставки 
+								b Процентная ставка:
+								p ключевая ставка Банка России (действующая на день заключения договора) 
+									a(href="#") https://www.cbr.ru/ 
+									| уменьшенная на 0,5% дополнительные комиссии отсутствуют
+								b Начисление процентов:
+								p ежемесячно, на остаток ссудной задолженности
+								b Погашение основного долга:
+								p ежемесячно (дифференцированный, аннуитетный график)
+								p 
+									b Отсрочка 
+									| уплаты основного долга до 
+									b 3 мес.  
+									| Отсутствие моратория на досрочное погашение
+								b Обеспечение:
+								ul
+									li залог имущества, приобретаемого за счет микрозайма (срок отсрочки предоставления залога до 2 мес.).
+									li иное имущественное обеспечение: не менее 100% от суммы основного долга + % за 12 мес.
+								b Виды обеспечения:
+								ul
+									li недвижимость (жилая*, нежилая недвижимость, земельные участки);
+									li автотранспорт, спецтехника, залог товар в обороте, оборудование**;
+									li поручительство физических лиц (в т.ч. супруг/супруга, третьи лица) (в качестве поручителей физических лиц могут выступать физические лица, имеющие постоянный официальный доход, и официальное трудоустройство);
+									li поручительство индивидуальных предпринимателей, предприятий и организаций Российской Федерации (в качестве поручителей юридических лиц/индивидуальных предпринимателей могут выступать юридические лица/индивидуальные предприниматели имеющие стабильное финансовое положение).
+								br
+								p 
+									i(style="font-size: 12px") * - жилая недвижимость не должна являться единственным жильем залогодателя и не иметь зарегистрированных лиц.
+									br
+									i(style="font-size: 12px") ** дополнительные возможные расходы, связанные с оформлением обеспечения в залог (автотранспорт, спецтехника, оборудование, товар в обороте):
+								ul
+									li(style="font-size: 12px") регистрация уведомления о возникновении залога движимого имущества в Реестре залогов движимого имущества ФНП; 
+									li(style="font-size: 12px") оформление нотариального согласия супруга/супруги на залог имущества;
+									li(style="font-size: 12px") страхование от основных рисков.
+								br
+								p Срок действия одобрения: 1 месяц
+								ul
+									li 
+										a(href="#") АНКЕТА-ЗАЯВЛЕНИЕ Заемщика
+									li 
+										a(href="#") Список документов на микрозайм
+									li 
+										a(href="#") Правила предоставления микрозаймов субъектам малого и среднего предпринимательства
+									li 
+										a(href="#") Программы микрофинансирования
+							.calc__top-btns
+								a.calc-btn(href="#") Подать заявку
+								a.calc-btn(href="#") Заказать звонок
+								a.calc-btn.open-calc(href="#") Рассчитать займ
+						.calc#calc
+							form(v-cloak)
+								calc(:id="0", :name="'Микрозайм «Производи»'", :otsrok="{min:0,max:6,default:0}", :type="[{id: 0, name: 'инвестиционные цели, приобретение нового высокотехнологического и/ или инновационного оборудования, у завода изготовителя или официального дилера.', min: 500000, max: 5000000, default: 1000000, step: 5000, percent: 7.25, srok: {min: 1,max: 36,default: 12,step: 1}}]", inline-template="")
+									div
+										div(class="support-top__info-title") Калькулятор займа
+										div(class="calc__select")
+											label.calc__select-label Тип займа:
+											select(v-model="selected" class="calc__input")
+												option(:value="name.id" v-for="name in type") {{ name.name }}
+										div(class="calc__select" v-if="selected != 'default'")
+											label.calc__select-label График погашения основного долга:
+											select(v-model="curTimetableID" class="calc__input")
+												option(:value="timetable.id" v-for="timetable in timetables") {{ timetable.name }}
+										//- div(v-if="selected != 'default' && curTimetableID != 'default'" class="calc__title calc__title--left") {{ curType.name }}
+										div(v-show="selected != 'default'" class="calc")
+											div(class="calc__title") Расчёт графика платежей
+											form
+												div(class="calc__wrap")
+													div(class="calc__input-cont")
+														input(required="" type="text" v-model.number="curSrok" class="calc__input")
+														label(class="calc__label") Срок(мес.):
+														vue-slider(v-model.number="curSrok", :min="curType.srok.min", :max="curType.srok.max", :interval="curType.srok.step")
+													div(class="calc__input-cont")
+														input(required="" type="text" v-model.number="summ" class="calc__input")
+														label(class="calc__label") Сумма(руб.):
+														vue-slider(v-model.number="summ", :min="curType.min", :max="curType.max", :interval="curType.step")
+													div(class="calc__input-cont")
+														input(type="text" readonly="" v-model="pereplata" class="calc__input")
+														label(class="calc__label") Переплата:
+													div(class="calc__input-cont")
+														input(type="text" readonly="" v-model="vsego" class="calc__input")
+														label(class="calc__label") Всего:
+												//- div(class="calc__title") Расчёт графика платежей
+												div(class="calc__wrap") 
+													div(class="calc__input-cont")
+														//- input(type="text" v-model="curDate" readonly="readonly" class="calc__input date-pick")
+														vuejs-datepicker(:format="'dd.MM.yyyy'", :calendar-button="false", :monday-first="true", :input-class="'calc__input'", v-model="curDate", :value="curDate")
+														label(class="calc__label") Дата выдачи:
+													div(class="calc__input-cont")
+														input(type="text" v-model="nextDate" readonly="readonly" class="calc__input")
+														label(class="calc__label") Дата погашения:
+													div(class="calc__input-cont")
+														select(type="text" v-model.number="curOtsrok" class="calc__input")
+															option(:value="0") Нет
+															option(:value="i" v-for="i in maxOtsrok") {{ i }}
+														label(class="calc__label") Отсрочка(мес):
+													div(class="calc__input-cont calc__input-cont--button")
+														div(@click="print()" class="calc-btn") Печать графика платежей
+												div(class="calc__table")
+													table(class="calc-table")
+														thead
+															tr
+																th Номер платежа
+																th Дата платежа
+																th Всего
+																th В погашение долга
+																th В погашение процентов
+																th Остаток долга после платежа
+															tr
+																th(colspan="2") Всего
+																th {{ vsego }}
+																th {{ itog }}
+																th {{ pereplata }}
+																th 
+														tbody
+															tr(v-for="(row, i) in tableArr")
+																td {{ i+1 }}
+																td {{ row.date }}
+																td {{ partitionNumber(row.itog) }}
+																td {{ partitionNumber(row.forDolg) }}
+																td {{ partitionNumber(row.forPersents) }}
+																td {{ partitionNumber(row.ostatok) }}
+				.main-top__right
+					.inn-search.inn-search--right
+						.inn-search__lab.inn-search__lab--right Введите ИНН и узнайте о вариантах поддержки вашего бизнеса:
+						.inn-search__form.inn-search__form--right
+							form
+								<!--скрытые инпуты сюда-->
+								.inn-search__form-cont.inn-search__form-cont--right
+									input.inn-search__input.inn-search__input--right(type="text" placeholder="Ваш ИНН")
+									input.inn-search__submit.inn-search__submit--right(type="submit" value="Найти")
+					.calendar
+						.calendar__title Календарь мероприятий
+						.calendar-body-cont
+							.calendar-filter
+								select.calendar-filter__select.calendar-filter__select--month
+									- for(var i = 1; i <= 12; i++){
+										option Декабрь
+									- }
+								select.calendar-filter__select.calendar-filter__select--year
+									- for(var i = 0; i <= 7; i++){
+										option="201"+i
+									- }
+							.calendar-body__padding
+								.calendar-body
+									.calendar-row
+										span.calendar__cell.calendar__cell--another 28
+										span.calendar__cell.calendar__cell--another 29
+										span.calendar__cell.calendar__cell--another 30
+										a.calendar__cell.calendar__cell--link.calendar__cell--selected(href="#") 1
+										a.calendar__cell.calendar__cell--link(href="#") 2
+										a.calendar__cell.calendar__cell--link(href="#") 3
+										span.calendar__cell 4
+									.calendar-row
+										- for (var i = 5; i <= 11; i++){
+											span.calendar__cell=i
+										- }
+									.calendar-row
+										span.calendar__cell 12
+										a.calendar__cell.calendar__cell--link(href="#") 13
+										- for (var i = 14; i <= 18; i++){
+											span.calendar__cell=i
+										- }
+									.calendar-row
+										- for (var i = 19; i <= 25; i++){
+											span.calendar__cell=i
+										- }
+									.calendar-row
+										- for (var i = 26; i <= 31; i++){
+											a.calendar__cell.calendar__cell--link(href="#")=i
+										- }
+										span.calendar__cell.calendar__cell--another 1
+include inc/inner-footer.jade

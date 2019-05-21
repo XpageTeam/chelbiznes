@@ -1,0 +1,84 @@
+include inc/header.jade
+#content
+	.wrapper
+		.main-content
+			h1 Личный кабинет
+
+			.personal-account
+				aside.personal-account__aside
+					.personal-account__nav-list
+						.nav__item.active
+							a(href="#").nav__link Ваши обращения
+						.nav__item
+							a(href="#").nav__link Доступные виды поддержки
+						.nav__item
+							a(href="#").nav__link Личные данные
+						.nav__item
+							a(href="#").nav__link Вопрос-ответ
+						.nav__item
+							a(href="#").nav__link Ваши новости
+						.nav__item
+							a(href="#").nav__link Ваши мероприятия
+						.nav__item
+							a(href="#").nav__link Обучение
+
+				.personal-account__content
+					.personal-account__top
+						.title Ваши обращения
+
+					.appeal
+						.appeal__list
+							.appeal__item
+								.appeal__info
+									.data 10.02.2018
+									.status.status--done Выполнено
+								.appeal__item-wrap
+									.appeal__text
+										p МФЦ для бизнеса с комфортом
+									.appeal__doc
+										.appeal__doc-title Документ
+										.appeal__doc-list
+											.appeal__doc-item Паспорт гражданина Российской Федерации <span class="doc-format">(12 Мб.jpg)</span>
+											.appeal__doc-item Паспорт гражданина Российской Федерации <span class="doc-format">(12 Мб.jpg)</span>
+
+							.appeal__item
+								.appeal__info
+									.data 10.02.2018
+									.status.status--expertiza Экономическая экспертиза пройдена
+								.appeal__item-wrap
+									.appeal__text
+										p Предоставление поручительства
+									.appeal__doc
+										.appeal__doc-title Документ
+										.appeal__doc-list
+											.appeal__doc-item Паспорт гражданина Российской Федерации <span class="doc-format">(12 Мб.jpg)</span>
+											.appeal__doc-item Паспорт гражданина Российской Федерации <span class="doc-format">(12 Мб.jpg)</span>
+
+							.appeal__item
+								.appeal__info
+									.data 10.02.2018
+									.status.status--no Поддержка не оказана
+								.appeal__item-wrap
+									.appeal__text
+										p Общее
+									.appeal__doc
+										.appeal__doc-title Документ
+										.appeal__doc-list
+											.appeal__doc-item Паспорт гражданина Российской Федерации <span class="doc-format">(12 Мб.jpg)</span>
+											.appeal__doc-item Паспорт гражданина Российской Федерации <span class="doc-format">(12 Мб.jpg)</span>
+
+							.appeal__item
+								.appeal__info
+									.data 10.02.2018
+									.status.status--pause Ожидание клиента
+								.appeal__item-wrap
+									.appeal__text
+										p Онлайн запись на услуги с сайта
+									.appeal__doc
+										.appeal__doc-title Документ
+										.appeal__doc-list
+											.appeal__doc-item Паспорт гражданина Российской Федерации <span class="doc-format">(12 Мб.jpg)</span>
+
+
+
+include inc/footer.jade  

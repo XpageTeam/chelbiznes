@@ -1,0 +1,121 @@
+include inc/header.jade
+#content
+	.wrapper
+		.main-content
+			h1 Личный кабинет
+
+			.personal-account
+				aside.personal-account__aside
+					.personal-account__nav-list
+						.nav__item.active
+							a(href="#").nav__link Ваши обращения
+						.nav__item
+							a(href="#").nav__link Доступные виды поддержки
+						.nav__item
+							a(href="#").nav__link Личные данные
+						.nav__item
+							a(href="#").nav__link Вопрос-ответ
+						.nav__item
+							a(href="#").nav__link Ваши новости
+						.nav__item
+							a(href="#").nav__link Ваши мероприятия
+						.nav__item
+							a(href="#").nav__link Обучение
+
+				.personal-account__content
+					.personal-account__top
+						.title Доступные виды поддержки
+
+					.main-top__info-block
+						.main-top__info-top-wrap
+							.main-top__info-top
+								.main-top__info-title Мы помогаем предпринимателям запустить и развить бизнес, а также получить гос. поддержку — деньгами, имущественной поддержки, инвестициями
+								.main-top__info-how-to
+									.main-top__info-subtitle Как это работает?
+									.main-top__info-text Вы один раз отправляете заявку с сайта или приходите к нам — и получаете консультации, обучение, финансирование.
+						.main-top__info-bot
+							.inn-search
+								.inn-search__lab Введите ИНН и узнайте о вариантах поддержки вашего бизнеса:
+								.inn-search__form
+									form
+										<!--скрытые инпуты сюда-->
+										.inn-search__form-cont
+											input.inn-search__input(type="text" placeholder="Ваш ИНН")
+											input.inn-search__submit(type="submit" value="Найти")
+
+					.okvad
+						.okvad-num 64.99
+						.text-page
+							p Предоставление прочих финансовых услуг, кроме услуг по страхованию и пенсионному обеспечению, не включенных в другие группировки
+							p Эта группировка включает:
+							ul 
+								li прочие виды деятельности в сфере финансовых услуг, прежде всего связанные с распределением финансовых средств,  кроме предоставления займов, включая факторинговые услуги, заключение свопов, опционов и прочих срочных сделок;
+								li деятельность, связанную с частным инвестированием, например, деятельность инвестиционных фондов (кроме акционерных);
+								li деятельность компаний по венчурному инвестированию и пр.
+							p Эта группировка не включает:
+							ul 
+								li финансовый лизинг, см. 64.91;
+								li операционный лизинг, согласно типу лизинговых товаров, см. 77;
+								li страхование и деятельность по негосударственному пенсионному обеспечению, см. 65;
+								li обязательное социальное страхование и государственное пенсионное обеспечение, см. 84.30;
+								li поручительскую деятельность в членских организациях, см. 94.99;
+								li операции с ценными бумагами по поручению других лиц, см. 66.12;
+								li покупку, продажу и аренду недвижимости, см. 68;
+								li инкассацию векселей без долговой скупки, см. 82.91;
+								li деятельность по управлению холдинговыми компаниями, см. 64.20
+						.okvad-checkbox
+							.title Cписок доступных программ для ОКВЭД 64.99 (выберите интересующие Вас)
+
+							form(action="")
+								.form-wrap
+									.forms-checkbox
+										input(type="checkbox").forms__checkbox#checkbox-1
+										label(for="checkbox-1").forms__checkbox-label Образовательные программы
+									.forms-checkbox
+										input(type="checkbox").forms__checkbox#checkbox-2
+										label(for="checkbox-2").forms__checkbox-label Поддержка экспорта
+									.forms-checkbox
+										input(type="checkbox").forms__checkbox#checkbox-3
+										label(for="checkbox-3").forms__checkbox-label Консультационные услуги
+
+					.okvad-form
+						.forms__title Оставить заявку
+						form(action="")
+							.forms-wrap
+								.forms-input-cont
+									input(required="" placeholder="" type="text").forms__input
+									label.forms__label Имя
+									.forms__error-message
+										i.forms__error-message-icon
+								.forms-input-cont
+									input(required="" placeholder="" type="tel").forms__input
+									label.forms__label Телефон
+									.forms__error-message
+										i.forms__error-message-icon
+								.forms-input-cont
+									input(required="" placeholder="" type="tel").forms__input
+									label.forms__label E-mail
+									.forms__error-message
+										i.forms__error-message-icon
+								.forms-input-cont.forms-input-cont--textarea
+									textarea.forms__input.forms__input--textarea(required="")
+									label.forms__label Интересующие программы
+								.forms-input-cont.forms-input-cont--textarea
+									textarea.forms__input.forms__input--textarea(required="")
+									label.forms__label Комментарий
+							.form-wrap.forms-wrap--bot
+								.recapcha
+									img(src="img/recapcha.jpg", alt="")
+								.forms-submit-cont
+									input(type="submit" value="Отправить заявку").forms__submit.btn
+
+									
+
+
+
+
+					
+
+
+
+include inc/footer.jade  

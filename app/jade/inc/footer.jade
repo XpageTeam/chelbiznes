@@ -1,0 +1,19 @@
+footer
+	.wrapper
+		.footer
+			.foote-cont
+				.copy
+					.title Фонд развития малого и среднего предпринимательства Челябинской области
+					<!--.subtitle Отдел поддержки и развития предпринимательства-->
+					address
+						span 454091, г. Челябинск, у. Российская, 110 к1 (2 этаж)
+						a(href="mailto:info@fond74.ru") info@fond74.ru
+				.soc
+					each soc in ["vk", "fb", "inst", "ok", "gp"]
+						a(href="#" style="background-image: url('img/icon-soc-"+soc+".png')")
+				.call
+					address
+						a(href="tel:8 (351) 263-25-96" class="phone") 8 800 707 24 74
+						a(href="#call" class="fancybox") Заказать звонок
+each name in ["jquery.min", "jquery.texttailor", "scrollslave", "js.cookie", "slick", "jquery.fancybox", "common"]
+	script(src='js/'+name+".js")

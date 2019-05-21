@@ -1,0 +1,90 @@
+include inc/header.jade
+#content
+	.wrapper
+		.main-content
+			h1 Личный кабинет
+
+			.personal-account
+				aside.personal-account__aside
+					.personal-account__nav-list
+						.nav__item.active
+							a(href="#").nav__link Ваши обращения
+						.nav__item
+							a(href="#").nav__link Доступные виды поддержки
+						.nav__item
+							a(href="#").nav__link Личные данные
+						.nav__item
+							a(href="#").nav__link Вопрос-ответ
+						.nav__item
+							a(href="#").nav__link Ваши новости
+						.nav__item
+							a(href="#").nav__link Ваши мероприятия
+						.nav__item
+							a(href="#").nav__link Обучение
+
+				.personal-account__content
+					.personal-account__top
+						.title Обучение
+
+					
+					.personal-account__education
+						.video
+							<iframe width="100%" height="100%" src="https://www.youtube.com/embed/t-uVk3_bkVg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+
+					.education-form
+						form(action="")
+							.forms-title Отправить домашнее задание
+							
+							.forms-wrap
+								.forms-input-cont
+									input(placeholder="" type="text").forms__input
+									label.forms__label Фамилия 
+									.forms__error-message
+										i.forms__error-message-icon
+								.forms-input-cont
+									input(placeholder="" type="text").forms__input
+									label.forms__label Имя
+									.forms__error-message
+										i.forms__error-message-icon
+								.forms-input-cont
+									input(placeholder="" type="text").forms__input
+									label.forms__label Отчество
+									.forms__error-message
+										i.forms__error-message-icon
+								.forms-input-cont
+									input(placeholder="" type="text").forms__input
+									label.forms__label Название курса
+									.forms__error-message
+										i.forms__error-message-icon
+								.forms-input-cont
+									input(placeholder="" type="text").forms__input
+									label.forms__label Название задания
+									.forms__error-message
+										i.forms__error-message-icon
+								.forms-input-cont
+									input(placeholder="" type="text").forms__input
+									label.forms__label Дата выполнения
+									.forms__error-message
+										i.forms__error-message-icon
+
+								.forms-input-cont.forms-input-cont--file
+									input(required="" type="file").forms__input.forms__input--file#file-1
+									label(for="file-1" data-btn-text="Обзор").forms__label.forms__label--file Обзор:
+									input(readonly="" type="text" placeholder="").forms__input.forms__input--file-support
+									.forms__error-message.forms__error-message--file
+										i.forms__error-message-icon
+									.forms__file-formats Поддерживаемые форматы: doc, docx, txt, rtf, xls, xlsx, jpeg, jpg, png, png, avi
+
+								.forms-input-cont.recapcha
+									img(src="img/recapcha.jpg", alt="")
+
+
+								.forms-submit-cont
+									input(type="submit" value="Отправить").forms__submit
+
+							
+
+
+
+include inc/footer.jade  

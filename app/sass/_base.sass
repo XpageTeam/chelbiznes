@@ -1,0 +1,324 @@
+@import "bourbon"
+@import "vars"
+
+%clear
+	clear: both
+	display: table
+	content: " "
+
+%clearfix
+	
+	&:after
+		@extend %clear
+
+%posit
+	position: relative
+	float: left
+
+%bg-cutch
+	background: $second-color
+	padding: 7px 0
+	box-shadow: 32px 0 0 $second-color, -32px 0 0 $second-color
+
+%clear-select
+	-webkit-appearance: none;
+	-apple-appearance: none
+	/* for FF */
+	-moz-appearance: none;
+	text-indent: 0.01px; 
+	text-overflow: '';
+	/* for IE */
+	-ms-appearance: none;
+	appearance: none!important;
+
+	&::-ms-expand 
+		display: none;
+
+#{$all-text-inputs}
+	box-sizing: border-box
+	border: 1px solid $main-color
+	padding: 0 19px
+	font-weight: 100
+	font-size: rem(18)
+	outline: none
+
+	+placeholder
+		color: #a8a8a7
+
+textarea
+	padding: 10px 19px
+
+	&:disabled
+		//background: transparent
+
+#{$all-text-inputs}
+	-webkit-appearance: none
+	appearance: none!important
+
+textarea, button, input[type='submit'], select
+	outline: none
+	-ms-appearance: none
+	-webkit-appearance: none
+	appearance: none!important
+
+button, input[type="submit"]
+	cursor: pointer
+
+html
+	font-size: 100%
+
+.table-wrap
+	position: relative
+
+	&__track
+		overflow-x: auto
+		-webkit-overflow-scrolling: touch
+
+	&__shadow
+		width: 12px
+		position: absolute
+		top: 0
+		bottom: 0
+		pointer-events: none
+		background: linear-gradient(to right, rgba(#fff, .0001), rgba(#000, .1))
+		opacity: 0
+
+		&--left
+			left: 0	
+			transform: rotateZ(180deg)
+
+		&--right
+			right: 0
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.3
+	font-family: $default-font
+	background: #fff
+	color: $main-color
+	color: #1c2745
+	font-weight: 300
+	display: flex 
+	flex-direction: column
+
+#content
+	margin-bottom: 44px
+
+.slick-arrow:hover
+	background: url("../img/icon-slider-arrow-right-hover.png") center no-repeat !important
+
+.access
+	display: none
+
+.wrapper
+	max-width: $base-width + px
+	margin: 0 auto
+	position: relative
+	padding: 0 15px
+
+a
+	color: $main-color
+	text-decoration: none
+	font-weight: 300
+
+a[href^="mailto:"], a[href^="tel:"]
+	white-space: nowrap
+	
+.link span
+	color: #5475ce
+	text-decoration: underline
+
+	&:hover
+		text-decoration: none
+
+b
+	//font-weight: 500
+
+header, main, footer, .wrapper
+
+	&:after
+		@extend %clear
+
+.toggle-class
+	cursor: pointer
+
+
+.checkbox
+	
+	input[type="checkbox"]
+		display: none
+
+		&:checked
+
+			+ label
+				background-position: top left
+
+	label
+		padding-left: 25px
+		min-height: 21px
+		display: block
+		cursor: pointer
+		position: relative
+		background: url("../img/checkbox.png") bottom left no-repeat
+
+.message--submit
+	margin-bottom: 25px
+
+.soc
+	margin-top: 35px
+	// position: absolute
+	// top: calc(50% - 22px)
+	// right: calc(50% - 155px)
+	// width: 310px
+	// text-align: center
+
+	&:after
+		@extend %clear
+
+	a
+		border-radius: 50%
+		+size(45px)
+		display: inline-block
+		background:
+			position: center
+			repeat: no-repeat
+			color: #273761
+		//float: left
+
+		+ a
+			margin-left: 10px
+
+#{$all-text-inputs}
+	
+	&.error
+		border-color: rgb(200, 0, 0) !important
+
+.top-poloska
+	background: #f4f6f8
+	padding: 10px 1vw
+
+	&:after
+		@extend %clear
+
+	.special
+		@extend %posit
+
+	.special
+
+		&:hover
+			text-decoration: underline
+
+	.user
+		margin-left: 1%
+		float: right
+		padding-left: 1%
+		//border-left: 2px solid $main-color
+		color: $main-color
+
+		a
+			color: inherit
+
+img
+	max-width: 100%
+
+ul
+	list-style: none
+
+%text-page, .one-news_print .text, .text-page
+	font-family: $second-font
+	line-height: rem(24)
+	
+	> *
+
+		&:not(:first-child)
+			margin-top: 25px
+
+	a
+		// text-decoration: underline
+
+	li
+		list-style: none
+
+		ol, ul
+			margin-left: 15px
+			margin-bottom: 25px
+
+	ul
+
+		li
+			position: relative
+
+			&:before
+				content: "-"
+				display: inline-block
+				margin-right: 5px
+
+	ol
+		counter-reset: i
+
+		li
+			counter-increment: i
+
+			&:before
+				display: inline-block
+				content: counter(i) ". "
+				margin-right: 3px
+
+	table:not([class])
+		width: 100%
+
+		img
+			max-width: auto
+			max-width: initial
+
+		td, th
+			vertical-align: middle
+			padding: 15px
+
+	table[border="1"]
+
+		td, th
+			border: 1px solid #e1e3e5
+
+address
+	font-weight: 300
+
+img[align]
+	margin-bottom: 3px
+
+img[align="right"]
+	float: right
+	margin-left: 15px
+
+img[align="left"]
+	float: left
+	margin-right: 15px
+
+
+.default-btn
+	border-radius: 35px
+	background: #f23a2c
+	color: #fff
+	font-size: 1rem
+	text-align: center
+	padding: 13px 24px 14px
+	border: none
+	cursor: pointer
+	display: inline-block
+	font-family: "Geometria", sans-serif
+	transition: background .3s ease
+
+	&:hover, &:focus
+		background: lighten(#f23a2c, .1)
+
+.add-btn
+	border-radius: 8px
+	background: #f23a2c
+	color: #fff
+	text-align: center
+	width: 15px
+	padding: 8px 10px
+	margin: 0 6px 10px 0
+	display: inline-block

@@ -1,0 +1,221 @@
+include inc/header.jade
+#content
+	//- .main-slider
+	//- 	- for (var i = 1; i <= 3; i++) {
+	//- 		.main-slider__slide
+	//- 			img.main-slider__slide-bg(src="img/photos/slider-img.jpg" alt)
+	//- 			.wrapper
+	//- 				.main-slider__slide-desc-cont
+	//- 					.main-slider__slide-desc
+	//- 						h2.main-slider__slide-title Получи офис бесплатно
+	//- 						.main-slider__slide-text Для развития предпринимательской деятельности важно обеспечить оптимальное сочетание интересов государства, потребителей и субъектов предпринимательства. 
+	//- 						button.main-slider__slide-btn Оставить заявку
+	//- 	- }
+	//- 	.wrapper
+	//- 		.main-slider__dots				
+	.wrapper
+		.main-nav
+			.main-nav__title Возможности для Вас и вашего бизнеса
+			.main-nav__wrap
+				table.main-nav__content
+					tbody.main-nav__list
+						tr.main-nav__row
+							td.main-nav__cell
+								a.main-nav__item.main-nav__item--link(href="#")
+									.main-nav__item-ico
+										img(src="img/ico-message.png", alt="") 
+									span Бесплатные консультации по всем вопросам ведения бизнеса
+							td.main-nav__cell
+								a.main-nav__item.main-nav__item--link(href="#")
+									.main-nav__item-ico
+										img(src="img/ico-blank.png", alt="") 
+									span Поручительство по банковским кредитам при недостаточности залога
+							td.main-nav__cell
+								a.main-nav__item.main-nav__item--link(href="#")
+									.main-nav__item-ico
+										img(src="img/ico-head.png", alt="") 
+									span Образовательный проект бля тех, кто открывает свой бизнес “Азбука предпринимателя” 
+						tr.popup-nav__row
+							td.main-nav__cell
+								a.main-nav__item.main-nav__item--link(href="#")
+									.main-nav__item-ico
+										img(src="img/ico-razrabotka.png", alt="") 
+									span Разработка технологических решений на производстве
+							td.main-nav__cell
+								a.main-nav__item.main-nav__item--link(href="#")
+									.main-nav__item-ico
+										img(src="img/ico-blank2.png", alt="") 
+									span Образовательный проект для развития Вашего бизнеса “Школа предпринимательства”
+							td.main-nav__cell 
+								a.main-nav__item.main-nav__item--link(href="#")
+									.main-nav__item-ico
+										img(src="img/ico-sodeystvie.png", alt="") 
+									span Содействие в объединении производственных предприятий в кластер
+							
+						tr.popup-nav__row 
+							td.main-nav__cell 
+								a.main-nav__item.main-nav__item--link(href="#")
+									.main-nav__item-ico
+										img(src="img/ico-man.png", alt="") 
+									span Тренинги, семинары и мастер-классы от ведущих бизнес-тренеров России 
+							td.main-nav__cell
+								a.main-nav__item.main-nav__item--link(href="#")
+									.main-nav__item-ico
+										img(src="img/ico-zavod.png", alt="")
+									span Финансирование проектов развития промышленных предприятий
+							td.main-nav__cell
+								a.main-nav__item.main-nav__item--link(href="#")
+									.main-nav__item-ico
+										img(src="img/ico-pay.png", alt="")
+									span Получение кредитов на льготных условиях 
+						tr.popup-nav__row
+							
+							td.main-nav__cell
+								a.main-nav__item.main-nav__item--link(href="#")
+									.main-nav__item-ico
+										img(src="img/ico-world.png", alt="")
+									span Вывод продуктов на международный рынок
+							td.main-nav__cell
+								a.main-nav__item.main-nav__item--link(href="#")
+									.main-nav__item-ico
+										img(src="img/ico-home.png", alt="")
+									span МФЦ для бизнеса с комфортом
+							td.main-nav__cell
+								a.main-nav__item.main-nav__item--link(href="#")
+									.main-nav__item-ico
+										img(src="img/ico-stairs.png", alt="")
+									span Сопровождение инвестиционных проектов
+		.main-content
+			.main-top
+				.main-top__left
+					.main-top__info-block
+						.main-top__info-top-wrap
+							.main-top__info-top
+								.main-top__info-title Мы помогаем предпринимателям запустить и развить бизнес, а также получить гос. поддержку — деньгами, условиями, инвестициями
+								.main-top__info-how-to
+									.main-top__info-subtitle Как это работает?
+									.main-top__info-text Вы один раз отправляете заявку с сайта или приходите к нам — и получаете консультации, обучение, финансирование. 
+						.main-top__info-bot
+							.inn-search
+								.inn-search__lab Введите ИНН и узнайте о вариантах поддержки вашего бизнеса:
+								.inn-search__form
+									form
+										<!--скрытые инпуты сюда-->
+										.inn-search__form-cont
+											input.inn-search__input(type="text" placeholder="Ваш ИНН")
+											input.inn-search__submit(type="submit" value="Найти")
+				.main-top__right
+					.calendar
+						.calendar__title Календарь мероприятий
+						.calendar-body-cont
+							.calendar-filter
+								select.calendar-filter__select.calendar-filter__select--month
+									- for(var i = 1; i <= 12; i++){
+										option Декабрь
+									- }
+								select.calendar-filter__select.calendar-filter__select--year
+									- for(var i = 0; i <= 7; i++){
+										option="201"+i
+									- }
+							.calendar-body__padding
+								.calendar-body
+									.calendar-row
+										span.calendar__cell.calendar__cell--another 28
+										span.calendar__cell.calendar__cell--another 29
+										span.calendar__cell.calendar__cell--another 30
+										a.calendar__cell.calendar__cell--link.calendar__cell--selected(href="#") 1
+										a.calendar__cell.calendar__cell--link(href="#") 2
+										a.calendar__cell.calendar__cell--link(href="#") 3
+										span.calendar__cell 4
+									.calendar-row
+										- for (var i = 5; i <= 11; i++){
+											span.calendar__cell=i
+										- }
+									.calendar-row
+										span.calendar__cell 12
+										a.calendar__cell.calendar__cell--link(href="#") 13
+										- for (var i = 14; i <= 18; i++){
+											span.calendar__cell=i
+										- }
+									.calendar-row
+										- for (var i = 19; i <= 25; i++){
+											span.calendar__cell=i
+										- }
+									.calendar-row
+										- for (var i = 26; i <= 31; i++){
+											a.calendar__cell.calendar__cell--link(href="#")=i
+										- }
+										span.calendar__cell.calendar__cell--another 1
+			.faq
+				.faq__title Какая задача для вас актуальна?
+				.faq-cont
+					article.faq__block.faq__block--open
+						.faq__block-head(style="background-image: url('img/photos/main-ico-1.png')")
+							h2.faq__block-title открывай
+							h3.faq__block-subtitle Возможность открыть бизнес легко
+						.faq__block-text-cont
+							.faq__block-text
+								ul
+									b Консультации:
+									li по вопросам выбора формы собственности и системы налогообложения
+									li по вопросам подготовки учредительных документов
+									li помощь в расчетах финансово-экономического обоснования и бизнес-плана
+									li экспертиза бизнес-проекта
+								ul
+									b Обучение:
+									li программа Корпорации развития МСП «Азбука предпринимательства»
+									li программа «Ты-предприниматель»
+								ul
+									b Прием документов:
+									li на регистрацию ИП или ООО
+									li на открытие расчетного счета
+					- var faq = [{title: "развивай", subtitle: "Инструментарий развития действующего бизнеса"}, {title: "сопровождай", subtitle: "Сопровождение бизнеса по принципу “Одного окна”"}, {title: "инвестируй", subtitle: "Инвестируй в развитие своего бизнеса"}, {title: "производи", subtitle: "Приоритетная поддержка для производственных компаний "}, {title: "экспортируй", subtitle: "Поддержка экспортоориентированного бизнеса"}]
+					each block, i in faq
+						article.faq__block
+							.faq__block-head(style="background-image: url('img/photos/main-ico-"+(i+2)+".png')")
+								h2.faq__block-title=block.title
+								h3.faq__block-subtitle=block.subtitle
+							.faq__block-text-cont
+								.faq__block-text
+									.faq__block-text
+									p
+										b Консультации:
+										ul
+											li по вопросам выбора формы собственности и системы налогообложения
+											li по вопросам подготовки учредительных документов
+											li помощь в расчетах финансово-экономического обоснования и бизнес-плана
+											li экспертиза бизнес-проекта
+									p
+										b Обучение:
+										ul
+											li программа Корпорации развития МСП «Азбука предпринимательства»
+											li программа «Ты-предприниматель»
+									p
+										b Прием документов:
+										ul
+											li на регистрацию ИП или ООО
+											li на открытие расчетного счета
+			.main-news
+				.main-news__title-cont
+					h2.main-news__title Новости
+					a.main-news__all(href="#") Все новости
+				.main-news-cont
+					- for(var i = 0; i <= 1; i++){
+						.main-news__row
+							each title in ["Бесплатный мастер-класс «Эффективные технологии сбыта продукции без затрат»", "VI Всероссийская конференция «Развитие системы инфраструктуры поддержки субъектов малого и среднего предпринимательства»"]
+								.main-news__one
+									.main-news__one-img-cont
+										img.main-news__one-img(src="img/photos/news-img.jpg" alt)
+									.main-news__one-desc
+										.main-news__one-date 14.11.2016
+										h3.main-news__one-title
+											a.main-news__one-link(href="#")=title
+					- }
+			.partners
+				each title, i in ["Губернатор Челябинской области", "Правительство Челябинской области", "Министерство экономического развития", "Инновационный бизнес-инкубатор Челябинской области"]
+					a(target="_blank" style="background-image:url('img/photos/partner-"+(i+1)+".png')")
+						span=title
+				each title, i in ["Губернатор Челябинской области", "Правительство Челябинской области", "Министерство экономического развития", "Инновационный бизнес-инкубатор Челябинской области"]
+					a(target="_blank" style="background-image:url('img/photos/partner-"+(i+1)+".png')")
+						span=title
+include inc/footer.jade

@@ -1,0 +1,53 @@
+include inc/header.jade
+#content				
+	.wrapper
+		.main-content
+			.bread-crumbs
+				a(href="#").bread-crumbs__link Главная
+				span.bread-crumbs__this Контакты
+			h1 Контакты
+
+			.contacts-page
+				h2 Территория Бизнеса
+				.contacts__list 
+					.contacts__title  Челябинск
+					.contacts__item
+						.contacts__item-head
+							.contacts__el
+								address.address ул. Российская, 110 к1 (2 этаж)
+							.contacts__el
+								.contacts__el-lable Телефон горячей линии
+								.phone 
+									a(href="tel:88003502474 ") 8 800 350 24 74
+							.contacts__el
+								.btn Посмотреть на карте
+						.contacts__item-map
+							.map
+								img(src="img/map.jpg", alt="")
+
+				.contacts__list 
+					.contacts__title  Златоуст
+					.contacts__item
+						.contacts__item-head
+							.contacts__el
+								address.address пр-кт им. Ю.А. Гагарина, 3 мкр, д. 43
+							.contacts__el
+								.contacts__el-lable Телефон горячей линии
+								.phone 
+									a(href="tel:8 351 369 04 85") 8 351 369 04 85
+									a(href="tel:8 904 805 42 42") 8 904 805 42 42
+									a(href="tel:8 351 369 04 85") 8 351 369 04 85
+							.contacts__el
+								.btn Посмотреть на карте
+						.contacts__item-map
+							.map
+								img(src="img/map.jpg", alt="")
+
+
+
+
+
+
+
+
+include inc/footer.jade

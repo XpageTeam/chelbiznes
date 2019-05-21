@@ -1,0 +1,311 @@
+include inc/header.jade
+#content
+	.main-slider.main-slider--inner
+		- for (var i = 1; i <= 1; i++) {
+			.main-slider__slide.main-slider__slide--inner
+				img.main-slider__slide-bg(src="img/photos/support-img.jpg" alt)
+				.wrapper
+					.main-slider__slide-desc-cont
+						.main-slider__slide-desc.main-slider__slide-desc--inner
+							h2.main-slider__slide-title Поддержка экспорта
+							.main-slider__slide-text.main-slider__slide-text--inner Помогаем малому и среднему бизнесу выйти на зарубежные рынки. Бесплатно консультируем по вопросам ВЭД, обучаем, разрабатываем стратегии работы. Оплачиваем участие в выставках и конференциях, предоставляем переводчиков. Находим зарубежных партнёров, помогаем наладить контакты. Решаем сопутствующие вопросы.
+							a.main-slider__slide-btn(href="#") Оставить заявку
+		- }
+		.wrapper
+			.main-slider__dots
+	.wrapper
+		.main-content
+			.bread-crumbs
+				a.bread-crumbs__link(href="#") Главная
+				span.bread-crumbs__this Получить поддержку
+			.main-top
+				.main-top__left
+					.support-top
+						.support-top__info
+							.support-top__info-desc
+								.support-top__info-title Для кого?
+								.support-top__info-text Для действующих экспортёров и экспортно-ориентированных компаний из малого и среднего бизнеса. Ваша компания зарегистрирована в Реестре МСП. Средняя численность вашей компании не превышает 250 человек, выручка —2 млрд. руб. Вы зарегистрированы и работаете на территории Челябинской области.
+					.support-calc#calc(v-cloak)
+						calc(:list="[{id: 0, name: 'Заём \"Стандартный\"', list: ['Cумма займа: от 100 000 рублей до 1 000 000 рублей;', 'Cрок займа: от 3 до 12 месяцев.', 'Процентная ставка по договору микрозайма - 10% годовых;', 'Начисление процентов за пользование микрозаймом осуществляется на остаток ссудной задолженности;', 'Погашение процентов за пользование микрозаймом: ежемесячно;', 'Погашение основного долга по микрозайму: ежемесячно/отсрочка до 5 месяцев;', 'Комиссии и платежи: отсутствуют', 'Погашение займа: равными долями.'], otsrok: {min: 0, max: 5, default: 0}, srok: {min: 3, max: 12, default: 12, step: 1}, summa: {min: 100000, max: 1000000,	default: 1000000, step: 5000}, persent: 10}, {id: 1, name: 'Заём \"Нестандартный\"', list: ['Cумма займа: от 100 000 рублей до 1 000 000 рублей;', 'Cрок займа: от 3 до 12 месяцев.', 'Процентная ставка по договору микрозайма - 10% годовых;', 'Начисление процентов за пользование микрозаймом осуществляется на остаток ссудной задолженности;', 'Погашение процентов за пользование микрозаймом: ежемесячно;', 'Погашение основного долга по микрозайму: ежемесячно/отсрочка до 5 месяцев;', 'Комиссии и платежи: отсутствуют', 'Погашение займа: равными долями.'], otsrok: {min: 0, max: 5, default: 0}, srok: {min: 3, max: 12, default: 12, step: 1}, summa: {min: 100000, max: 1000000,	default: 300000, step: 5000}, persent: 30}, ]"  inline-template="")
+							div
+								.support-top__info-title Виды займов
+								.calc__types
+									.text-page
+										ul
+											each title in ["Cумма займа: от 100 000 рублей до 1 000 000 рублей; ", "Cрок займа: от 3 до 12 месяцев.", "Процентная ставка по договору микрозайма - 10% годовых; ", "Начисление процентов за пользование микрозаймом осуществляется на остаток ссудной задолженности; ", "Погашение процентов за пользование микрозаймом: ежемесячно; ", "Погашение основного долга по микрозайму: ежемесячно/отсрочка до 5 месяцев; ", "Комиссии и платежи: отсутствуют ", "Погашение займа: равными долями. "]
+												li=title
+								.calc__select
+									select.calc__input(v-model="selected")
+										option(value="default" selected) Выберите займ
+										option(:value="name.id", v-for="name in list") {{ name.name }}
+								.calc__title.calc__title--left(v-if="selected != 'default'") {{ curName }}
+								.calc__top-list(v-if="selected != 'default'")
+									.text-page
+										ul.calc-list
+											li.calc-list__el(v-for="listEl in curZaim.list") {{ listEl}}
+								.calc(v-show="selected != 'default'")
+									.calc__title Калькулятор займа
+									form
+										.calc__wrap
+											.calc__input-cont
+												input.calc__input(required="", type="text" v-model.number="curSrok")
+												label.calc__label Срок(мес.):
+												i.range(:data-min="srok.min", :data-max="srok.max", :data-step="srok.step", :data-default="srok.default" data-role="srok")
+											.calc__input-cont
+												input.calc__input(required="", type="text" v-model.number="summ")
+												label.calc__label Сумма(руб.):
+												i.range(:data-min="summa.min", :data-max="summa.max", :data-step="summa.step", :data-default="summa.default" data-role="summ")
+											.calc__input-cont
+												input.calc__input(type="text" readonly="" v-model="pereplata")
+												label.calc__label Переплата:
+											.calc__input-cont
+												input.calc__input(type="text" readonly="" v-model="vsego")
+												label.calc__label Всего:
+										.calc__title Рачёт графика платежей
+										.calc__wrap
+											.calc__input-cont
+												input.calc__input.date-pick(type="text" v-model="curDate" readonly)
+												label.calc__label Дата выдачи:
+											.calc__input-cont
+												input.calc__input(type="text" v-model="nextDate" readonly)
+												label.calc__label Дата погашения:
+											.calc__input-cont
+												select.calc__input(type="text" v-model.number="curOtsrok")
+													option(:value="0") Нет
+													option(:value="i" v-for="i in maxOtsrok") {{ i }}
+												label.calc__label Отсрочка(мес):
+											.calc__input-cont.calc__input-cont--button
+												.calc-btn(@click="print()") Печать графика платежей
+										.calc__table
+											table.calc-table
+												thead
+													tr 
+														each title in ["Номер платежа", "Дата платежа", "Всего", "В погашение долга", "В погашение процентов", "Остаток долга после платежа", ]
+															th=title
+													tr
+														th(colspan="2") Всего
+														th {{ vsego }}
+														th {{ itog }}
+														th {{ pereplata }}
+														th
+												tbody
+													tr(v-for="(row, i) in tableArr")
+														td {{ i+1 }}
+														td {{ row.date }}
+														td {{ partitionNumber(row.itog) }}
+														td {{ partitionNumber(row.forDolg) }}
+														td {{ partitionNumber(row.forPersents) }}
+														td {{ partitionNumber(row.ostatok) }}
+					.support-grid
+						.support-grid__title-block
+							h2.support-grid__title Что вы получите?
+							.support-grid__subtitle Практически все услуги для вас — <b>бесплатны.</b>
+						.support-grid__cont
+							each title, i in ["Консультации экспертов по вопросам ВЭД", "Обучение по тематике внешнеэкономической деятельности", "Организация участия в выставках, ярмарках, конгрессах", "Компенсация расходов на проведение бизнес-миссий в России и за рубежом", "Маркетинговые исследования зарубежных рынков для вашего продукта Перевод вашего сайта на иностранный язык", "Подготовка презентации на ин.языке, продвижение вашего коммерческого предложения", "Организация и проведение бизнес-встреч с зарубежными партнёрами", "Приём иностранных делегаций, заинтересованных в вашем продукте", "Приведение вашего продукта в соответствие с требованиями зарубежных рынков (сертификация, стандартизация)"]
+								.support-grid__el
+									.support-grid__el-img(style="background-image: url('img/photos/grid-img-"+(i+1)+".png')")
+									h3.support-grid__el-text=title
+				.main-top__right
+					.inn-search.inn-search--right
+						.inn-search__lab.inn-search__lab--right Введите ИНН и узнайте о вариантах поддержки вашего бизнеса:
+						.inn-search__form.inn-search__form--right
+							form
+								<!--скрытые инпуты сюда-->
+								.inn-search__form-cont.inn-search__form-cont--right
+									input.inn-search__input.inn-search__input--right(type="text" placeholder="Ваш ИНН")
+									input.inn-search__submit.inn-search__submit--right(type="submit" value="Найти")
+					.calendar
+						.calendar__title Календарь мероприятий
+						.calendar-body-cont
+							.calendar-filter
+								select.calendar-filter__select.calendar-filter__select--month
+									- for(var i = 1; i <= 12; i++){
+										option Декабрь
+									- }
+								select.calendar-filter__select.calendar-filter__select--year
+									- for(var i = 0; i <= 7; i++){
+										option="201"+i
+									- }
+							.calendar-body__padding
+								.calendar-body
+									.calendar-row
+										span.calendar__cell.calendar__cell--another 28
+										span.calendar__cell.calendar__cell--another 29
+										span.calendar__cell.calendar__cell--another 30
+										a.calendar__cell.calendar__cell--link.calendar__cell--selected(href="#") 1
+										a.calendar__cell.calendar__cell--link(href="#") 2
+										a.calendar__cell.calendar__cell--link(href="#") 3
+										span.calendar__cell 4
+									.calendar-row
+										- for (var i = 5; i <= 11; i++){
+											span.calendar__cell=i
+										- }
+									.calendar-row
+										span.calendar__cell 12
+										a.calendar__cell.calendar__cell--link(href="#") 13
+										- for (var i = 14; i <= 18; i++){
+											span.calendar__cell=i
+										- }
+									.calendar-row
+										- for (var i = 19; i <= 25; i++){
+											span.calendar__cell=i
+										- }
+									.calendar-row
+										- for (var i = 26; i <= 31; i++){
+											a.calendar__cell.calendar__cell--link(href="#")=i
+										- }
+										span.calendar__cell.calendar__cell--another 1
+			.faq.faq--support
+				h2.faq__title.faq__title--support Дополнительные возможности для вас
+				.faq-cont
+					article.faq__block.faq__block--open.faq__block--support
+						.faq__block-head.faq__block-head--support
+							h3.faq__block-title.faq__block-title--support Примите участие в образовательном проекте РЭЦ — обучении компаний-экспортеров основам и ведению экспортной деятельности, с учётом российского и международного опыта.
+						.faq__block-text-cont
+							.faq__block-text.faq__block-text--support
+								ul
+									b Программа охватывает 8 модулей:
+									li Экспорт в стратегии развития предприятия
+									li Эффективный маркетинг для экспортеров
+									li Деловые коммуникации в экспортной деятельности
+									li Правовое обеспечение экспортной деятельности
+									li Управление финансовыми ресурсами для экспортеров
+									li Документальное обеспечение экспортной деятельности
+									li Таможенное оформление экспортной деятельности
+									li Логистика в экспорте
+								p Обучение гарантирует вам поддержку от Министерства экономического развития Челябинской области по вопросам экспорта товаров за границу, плюс вы получаете преимущество при обращении в Российский экспортный центр.
+					each title in ["Примите участие в бизнес-миссии", "Посетите конференцию «Стираем границы для экспорта» и:"]
+						article.faq__block.faq__block--support
+							.faq__block-head.faq__block-head--support
+								h3.faq__block-title.faq__block-title--support=title
+							.faq__block-text-cont
+								.faq__block-text.faq__block-text--support
+									ul
+										b Программа охватывает 8 модулей:
+										li Экспорт в стратегии развития предприятия
+										li Эффективный маркетинг для экспортеров
+										li Деловые коммуникации в экспортной деятельности
+										li Правовое обеспечение экспортной деятельности
+										li Управление финансовыми ресурсами для экспортеров
+										li Документальное обеспечение экспортной деятельности
+										li Таможенное оформление экспортной деятельности
+										li Логистика в экспорте
+									p Обучение гарантирует вам поддержку от Министерства экономического развития Челябинской области по вопросам экспорта товаров за границу, плюс вы получаете преимущество при обращении в Российский экспортный центр.
+			.make-req
+				.make-req__title Выйти на экспорт — легко <br/>Узнайте возможности для вашей компании
+				a.make-req__btn.fancybox(href="#order") Получить поддержку
+			.support-slider
+				- for (var i = 1; i <=2; i++){
+					.support-slider__slide
+						.support-slider__slide-desc
+							h2.support-slider__slide-title История Успеха ООО «Солар» ЗАО РПК Системы управления:
+							.support-slider__slide-text 
+								p В 2015 году РИЦ-Челябинская область способствовал участию компаний Солар и РПК Системы управления в бизнес-миссии в Чехию. В рамках бизнес-миссии компании провели ряд B2B встреч и переговоров в г. Брно, а также обсудили нюансы сотрудничества с деловым партнером. Результатом делового общения стали заключенные контракты на совместные разработки. 
+								p В частности между ЗАО РПК Системы управления и чешской компанией был заключен контракт на разработку принципиальной технологической схемы экспериментального образца комбинированной системы энергоснабжения.
+						.support-slider__slide-img
+							img.support-slider__slide__img(src="img/photos/support-slider-img.jpg" alt)
+				- }
+			.faq.faq--support
+				h2.faq__title.faq__title--support FAQ: частые вопросы и ответы
+				.faq-cont
+					article.faq__block.faq__block--open.faq__block--support-2
+						.faq__block-head.faq__block-head--support-2
+							h3.faq__block-title.faq__block-title--support-2 Какие услуги предоставляет Центр поддержки экспорта:опыта.
+						.faq__block-text-cont
+							.faq__block-text.faq__block-text--support
+								ol
+									li 
+										b Информационно-консультационная поддержка:
+										ol
+											li Консультирование по вопросам заключения экспортных контрактов (таможенное оформление товаров, логистика и др.);
+											li Консультирование по сертификации продукции на международных рынках;
+											li Экспертиза и подготовка экспортных контрактов, их перевод на английский язык;
+											li Подготовка коммерческих предложений для иностранных партнеров;
+											li Организация обучающих семинаров, мастер-классов, круглых столов по внешнеэкономической деятельности;
+									li
+										b Услуги по продвижению:
+										ol
+											li Подготовка, перевод на иностранный язык (языки) презентационных материалов в печатном и электронном виде, распространении указанных материалов.
+											li Проведение маркетинговых исследований зарубежных рынков для определения перспектив сбыта российской продукции.
+											li Создание и (или) модернизация интернет сайтов на иностранных языках.
+											li Организация и проведение конкурса «Лучший экспортер Челябинской области».
+									li
+										b Зарубежные мероприятия:
+										ol
+											li Организация международных бизнес-миссий с подбором потенциальных партнеров и организацией индивидуальных деловых встреч.
+											li Организация участия в международных выставках с арендой выставочной площади.
+					each title in ["Стоимость услуг Центра поддержки экспорта", "Условия получения организацией поддержки", "Условия участия организаций в бизнес-миссиях", "Условия участия организаций в выставках"]
+						article.faq__block.faq__block--support-2
+							.faq__block-head.faq__block-head--support-2
+								h3.faq__block-title.faq__block-title--support-2=title
+							.faq__block-text-cont
+								.faq__block-text.faq__block-text--support-2
+									ol
+										li 
+											b Информационно-консультационная поддержка:
+											ol
+												li Консультирование по вопросам заключения экспортных контрактов (таможенное оформление товаров, логистика и др.);
+												li Консультирование по сертификации продукции на международных рынках;
+												li Экспертиза и подготовка экспортных контрактов, их перевод на английский язык;
+												li Подготовка коммерческих предложений для иностранных партнеров;
+												li Организация обучающих семинаров, мастер-классов, круглых столов по внешнеэкономической деятельности;
+										li
+											b Услуги по продвижению:
+											ol
+												li Подготовка, перевод на иностранный язык (языки) презентационных материалов в печатном и электронном виде, распространении указанных материалов.
+												li Проведение маркетинговых исследований зарубежных рынков для определения перспектив сбыта российской продукции.
+												li Создание и (или) модернизация интернет сайтов на иностранных языках.
+												li Организация и проведение конкурса «Лучший экспортер Челябинской области».
+										li
+											b Зарубежные мероприятия:
+											ol
+												li Организация международных бизнес-миссий с подбором потенциальных партнеров и организацией индивидуальных деловых встреч.
+												li Организация участия в международных выставках с арендой выставочной площади.
+			.support-banner
+				img.support-banner__bg(src="img/photos/support-banner-bg.jpg")
+				.support-banner__text-cont
+					.support-banner__title Для получения поддержки вам необходимо собрать следующий пакет документов:
+					.support-banner__text
+						ol
+							li 2 копии паспорта (первая страница и страница с пропиской)
+							li 1 копия ИНН
+							li Копия св-ва о регистрации юридического лица.
+			.support-contacts
+				.support-contacts__cont
+					.support-contacts__left
+						div
+							p 
+								b Директор:
+							p Сметанина Екатерина Дмитриевна
+						div
+							p 
+								b Администратор образовательных программ: 
+							p Колупаева Валерия Николаевна
+						div
+							p 
+								b Специалист по работе с экспортерами:
+							p Сорокина Ольга Вячеславовна
+					.support-contacts__right
+						div
+							address
+								p
+									b Адрес:
+								p 454091, г. Челябинск, ул. Васенко д.4, оф.502-503
+						div.support-contacts__contacts
+							address
+								p 
+									b Телефон: 
+								p 
+									a(href="tel: 8 351 223 56 23") 8 351 223 56 23
+							address
+								p 
+									b Электронная почта:
+								p 
+									a(href="mailto: cpe@fond74.ru") cpe@fond74.ru
+						div.support-contacts__bot-link
+							p
+								a(href="https://vk.com/export.chel2016") https://vk.com/export.chel2016
+			.make-req
+				.make-req__title Выйти на экспорт — легко <br/>Узнайте возможности для вашей компании
+				a.make-req__btn.fancybox(href="#order") Получить поддержку
+include inc/inner-footer.jade

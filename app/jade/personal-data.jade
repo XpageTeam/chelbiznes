@@ -1,0 +1,104 @@
+include inc/header.jade
+#content
+	.wrapper
+		.main-content
+			h1 Личный кабинет
+
+			.personal-account
+				aside.personal-account__aside
+					.personal-account__nav-list
+						.nav__item.active
+							a(href="#").nav__link Ваши обращения
+						.nav__item
+							a(href="#").nav__link Доступные виды поддержки
+						.nav__item
+							a(href="#").nav__link Личные данные
+						.nav__item
+							a(href="#").nav__link Вопрос-ответ
+						.nav__item
+							a(href="#").nav__link Ваши новости
+						.nav__item
+							a(href="#").nav__link Ваши мероприятия
+						.nav__item
+							a(href="#").nav__link Обучение
+
+				.personal-account__content
+					.personal-account__top
+						.title Личные данные
+						a(href="#").personal-account__top-link.change Изменить
+						a(href="#").personal-account__top-link.transform Преобразовать в аккаунт юридического лица
+
+
+					.personal-data
+						form(action="")
+							.personal-data-info
+								
+								.forms-wrap
+									.forms-input-cont
+										input(placeholder="" type="text").forms__input
+										label.forms__label Имя
+										.forms__error-message
+											i.forms__error-message-icon
+									.forms-input-cont
+										input(placeholder="" type="text").forms__input
+										label.forms__label Фамилия
+										.forms__error-message
+											i.forms__error-message-icon
+									.forms-input-cont
+										input(placeholder="" type="text").forms__input
+										label.forms__label Отчество
+										.forms__error-message
+											i.forms__error-message-icon
+									.forms-input-cont
+										input(placeholder="" type="mail").forms__input
+										label.forms__label E-mail
+										.forms__error-message
+											i.forms__error-message-icon
+									.forms-input-cont
+										input(placeholder="" type="tel").forms__input
+										label.forms__label Телефон
+										.forms__error-message
+											i.forms__error-message-icon
+									.forms-input-cont
+										input(placeholder="" type="text").forms__input
+										label.forms__label ИНН
+										.forms__error-message
+											i.forms__error-message-icon
+							
+							.personal-data-pass
+								.forms__title Смена пароля
+								.forms-text-cont
+									.forms__text Введите свой текущий пароль, новый пароль и повторите ввод нового пароля, что бы исключить возможность опечатки
+								.forms-wrap
+									.forms-input-cont
+										input(placeholder="" type="text").forms__input
+										label.forms__label Текущий пароль
+										.forms__error-message
+											i.forms__error-message-icon
+									.forms-input-cont
+										input(placeholder="" type="text").forms__input
+										label.forms__label Новый пароль
+										.forms__error-message
+											i.forms__error-message-icon
+									.forms-input-cont
+										input(placeholder="" type="text").forms__input
+										label.forms__label Повторить пароль
+										.forms__error-message
+											i.forms__error-message-icon
+									
+
+									
+								.form-wrap.forms-wrap--bot
+									.forms-submit-cont
+										input(type="submit" value="Сохранить изменения").forms__submit.btn
+
+									
+
+
+
+
+					
+
+
+
+include inc/footer.jade  

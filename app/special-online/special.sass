@@ -1,0 +1,215 @@
+@import "bourbon"
+
+.c-fontsize
+
+	&-small
+		font-size: 102%
+
+	&-normal
+		font-size: 120%
+
+	&-big
+		font-size: 129%
+
+%black-btn
+	background: #000 !important
+	border: 2px solid #fff !important
+	outline: 3px solid #000 !important
+	color: #fff !important
+	margin: 3px
+	font-size: rem(22) !important
+
+	&:before, &:after
+		display: none
+
+body[class*="c-color"]
+	font-size: rem(22)
+
+	.calendarOnline, .application.theme--light, 
+	.application .theme--light.stepper, .theme--light .stepper, .primary
+		background: transparent !important
+
+	.calendarOnline h1, .calendarOnline h2
+		font-size: rem(26) !important
+		line-height: rem(28) !important
+		text-align: left
+		padding: 
+			left: 0 !important
+			right: 0 !important
+
+	.calendarOnline .leftCol
+		width: 100%
+
+	#page-preloader
+		display: none !important
+
+	*[v-cloak]
+		display: none !important
+
+	.stepper--vertical .stepper__content
+		margin: 0
+
+	*
+		box-shadow: none !important
+		transition: none !important
+		border-radius: 0 !important
+
+		&:not(.btn__content)
+
+			&:hover, &.active
+				background: transparent !important
+
+	.stepper--vertical .stepper__step, .calendarOnline .col-cal .content
+		padding: 
+			left: 0
+			right: 0
+
+	.btn
+		font-size: rem(18)
+		height: auto
+
+	.application .theme--light.stepper .stepper__step:not(.stepper__step--active):not(.stepper__step--complete):not(.stepper__step--error) .stepper__step__step, .theme--light .stepper .stepper__step:not(.stepper__step--active):not(.stepper__step--complete):not(.stepper__step--error) .stepper__step__step
+		background: none
+
+	.stepper
+
+		&__content
+			padding: 
+				left: 0 !important
+				right: 0 !important
+			border-left: none !important
+
+		&__step
+
+			&__step
+				line-height: rem(26)
+				font-size: rem(28)
+
+	.primary
+		border: none !important
+
+	.calendarOnline 
+
+		.months
+
+			li
+
+				&:not(:last-child)
+					margin: 0 15px 15px 0
+
+				a
+					width: auto
+
+		.months, .weekday, .days
+			display: flex
+			flex-wrap: wrap
+
+			li
+				float: none
+				flex: none
+
+				a
+					font-size: rem(18)
+
+		.days
+
+			li
+
+				a
+					padding: 5px !important
+					height: auto
+
+	.fkng-margin
+		margin: 
+			left: 0
+			right: 0
+		width: 330px
+
+	center
+		text-align: left
+
+	.calendarOnline .months li a
+		margin-bottom: 0
+
+		&.selected
+			font-weight: bold
+
+	.content
+
+		~ br
+			display: none
+
+	.swal2-container.swal2-shown
+		// display: none !important
+
+	.btn__content, .swal2-confirm
+		@extend %black-btn
+
+	.error
+		background: none !important
+
+	.btn .btn__content .icon
+		color: #fff !important
+
+	.card__actions
+		flex-wrap: wrap
+
+		.spacer
+			display: none
+
+body
+
+	&.c-color1, &.c-color3
+
+		*
+			color: #000 !important
+			border-color: #000 !important
+
+		.calendarOnline 
+
+			.months, .weekday, .days
+
+				.selected
+					background: transparent !important
+					color: inherit !important
+					border: 1px solid #000
+
+	&.c-color3
+
+		.overlay:before, .application .theme--light.card, .theme--light .card,
+		.swal2-container.swal2-shown, .swal2-popup, .application .theme--light.list, .theme--light .list
+			background: #9dd1ff !important
+			opacity: 1 !important
+
+	&.c-color2
+
+		*
+			color: #fff !important
+			border-color: #000 !important
+
+		input, textarea
+			outline: 2px solid #fff !important
+
+		%black-btn
+			color: #000 !important
+			background: #fff !important
+			border-color: #000 !important
+			outline-color: #fff !important
+			outline: 3px solid
+
+		.overlay--active:before
+			opacity: 1 !important
+			background: #000 !important
+
+		.application .theme--light.card, .theme--light .card
+			background: #000 !important
+
+		.overlay:before, .application .theme--light.card, .theme--light .card,
+		.swal2-container.swal2-shown, .swal2-popup, .application .theme--light.list, .theme--light .list
+			background: #000 !important
+			opacity: 1 !important
+
+	&.c-color3
+
+		%black-btn
+			border-color: #9dd1ff !important

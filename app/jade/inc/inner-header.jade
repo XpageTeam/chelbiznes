@@ -1,0 +1,29 @@
+html
+	head
+		meta(charset="utf-8")
+		title psk-ural.ru
+		meta(http-equiv="X-UA-Compatible" content="IE=edge")
+		meta(name="description")
+		link(href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,700" rel="stylesheet")
+		link(rel="shortcut icon" href="/favicon.ico" type="image/x-icon")
+		each name in ["jquery.fancybox", "common", "slick", "main", "forms", "main_data"]
+			link(rel="stylesheet" href="css/"+name+".css")
+	body.inner-page.load
+		header
+			.wrapper.wrapper--big
+				.head
+					.head-contacts
+						address.head__phone
+							a.head__phone-link(href="tel:8 (343) 287 44 70") 8 (343) 287 44 70
+							a.head__question.fancybox(href="#question") Задать вопрос
+						address.head__address
+							p г. Екатеринбург ул. Луганская, 4
+					a.logo
+						img.logo__img(src="img/logo-new.png" alt)
+					nav.menu.menu--head
+						ul.menu-list.menu-list--head
+							each link in ["О компании", "Продукция", "Услуги", "Проекты", "Контакты"]
+								li.menu-list__el.menu-list__el--head
+									a.menu-list__link.menu-list__link--head(href="#")=link
+							li.menu-list__el.menu-list__el--head.menu-list__el--cart
+								a.menu-list__link.menu-list__link--cart(href="#" data-count="1") Корзина
