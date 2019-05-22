@@ -1385,8 +1385,7 @@ header form input[type="text"] {
 .main-slider__slide {
   position: relative;
   height: auto;
-  height: 460px;
-  overflow: hidden;
+  min-height: 460px;
 }
 
 .main-slider__slide--inner:after {
@@ -1399,15 +1398,10 @@ header form input[type="text"] {
 }
 
 .main-slider__slide-bg {
-  min-width: 100%;
-  position: absolute;
+  width: 100%;
   height: 100%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: auto;
-  max-width: initial;
-  max-width: 300%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .main-slider__slide .wrapper {
@@ -1455,13 +1449,16 @@ header form input[type="text"] {
 }
 
 .main-slider__slide-desc-cont {
-  position: absolute;
   z-index: 2;
   display: table;
-  top: 50px;
-  left: 64px;
-  bottom: 85px;
+  margin-top: 50px;
+  margin-left: 64px;
+  margin-bottom: 85px;
   max-width: 700px;
+}
+
+.main-slider .slick-track {
+  height: auto;
 }
 
 .main-slider__dots {
@@ -8108,6 +8105,9 @@ body.frp .personal-account__nav-list .nav__item:not(:last-child) {
   .okvad-num, .okvad-info {
     padding: 15px 21px;
   }
+  .main-slider {
+    height: 515px;
+  }
   footer .call {
     width: auto !important;
     margin-top: 0 !important;
@@ -8314,7 +8314,6 @@ body.frp .personal-account__nav-list .nav__item:not(:last-child) {
     margin: 0;
     padding-bottom: 0;
     display: flex;
-    flex-direction: column;
   }
   .header-main__search {
     position: absolute;
@@ -8326,6 +8325,9 @@ body.frp .personal-account__nav-list .nav__item:not(:last-child) {
   }
   .header-main__logo {
     width: 30%;
+  }
+  .header-main__contact {
+    margin-left: auto;
   }
   .header__menu {
     width: 80%;
@@ -9406,7 +9408,11 @@ body.frp .personal-account__nav-list .nav__item:not(:last-child) {
   .main-slider {
     height: auto;
     overflow: hidden;
-    padding-bottom: 60px;
+    padding-bottom: 0;
+    overflow: visible;
+  }
+  .main-slider__slide {
+    min-height: auto;
   }
   .main-slider > .wrapper {
     position: absolute;
@@ -9436,9 +9442,8 @@ body.frp .personal-account__nav-list .nav__item:not(:last-child) {
     display: none !important;
   }
   .main-slider__slide-desc-cont {
-    right: 2.25%;
-    width: 95.5%;
-    top: 22px;
+    margin: 0;
+    margin-top: 22px;
     position: relative;
   }
   .support-top {
