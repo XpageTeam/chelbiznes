@@ -348,6 +348,10 @@ img[align="left"] {
   outline: none !important;
 }
 
+.event-calendar-page .header-main__contact-btn-cont, .event-calendar-page .help-btn, .event-calendar-page .b24-widget-button-wrapper, .event-calendar-page .call .btn-new {
+  display: none !important;
+}
+
 .news-form-bot {
   width: 100%;
   display: flex;
