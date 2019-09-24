@@ -1,0 +1,72 @@
+.calc#calc
+	form(v-cloak)
+		calc(:id="0", :name="'Микрозайм «Универсальный»'", :otsrok="{min:0,max:3,default:0}", :type="[{id: 0, name: 'Пополнение оборотных средств', min: 100000, max: 1000000, default: 500000, step: 5000, percent: 7.25, srok: {min: 1,max: 18,default: 12,step: 1}}, {id: 1, name: 'Инвестиционные цели', min: 500000, max: 3000000, default: 500000, step: 5000, percent: 7.25, srok: {min: 1,max: 36,default: 24,step: 1}}]", inline-template="")
+			div
+				div(class="support-top__info-title") Калькулятор займа
+				div(class="calc__select")
+					label.calc__select-label Тип займа:
+					select(v-model="selected" class="calc__input")
+						option(:value="name.id" v-for="name in type") {{ name.name }}
+				div(class="calc__select" v-if="selected != 'default'")
+					label.calc__select-label График погашения основного долга:
+					select(v-model="curTimetableID" class="calc__input")
+						option(:value="timetable.id" v-for="timetable in timetables") {{ timetable.name }}
+				//- div(v-if="selected != 'default' && curTimetableID != 'default'" class="calc__title calc__title--left") {{ curType.name }}
+				div(v-show="selected != 'default'" class="calc")
+					div(class="calc__title") Расчёт графика платежей
+					form
+						div(class="calc__wrap")
+							div(class="calc__input-cont")
+								input(required="" type="text" v-model.number="curSrok" class="calc__input")
+								label(class="calc__label") Срок(мес.):
+								vue-slider(v-model.number="curSrok", :min="curType.srok.min", :max="curType.srok.max", :interval="curType.srok.step")
+							div(class="calc__input-cont")
+								input(required="" type="text" v-model.number="summ" class="calc__input")
+								label(class="calc__label") Сумма(руб.):
+								vue-slider(v-model.number="summ", :min="curType.min", :max="curType.max", :interval="curType.step")
+							div(class="calc__input-cont")
+								input(type="text" readonly="" v-model="pereplata" class="calc__input")
+								label(class="calc__label") Переплата:
+							div(class="calc__input-cont")
+								input(type="text" readonly="" v-model="vsego" class="calc__input")
+								label(class="calc__label") Всего:
+						//- div(class="calc__title") Расчёт графика платежей
+						div(class="calc__wrap") 
+							div(class="calc__input-cont")
+								//- input(type="text" v-model="curDate" readonly="readonly" class="calc__input date-pick")
+								vuejs-datepicker(:format="'dd.MM.yyyy'", :calendar-button="false", :monday-first="true", :input-class="'calc__input'", v-model="curDate", :value="curDate")
+								label(class="calc__label") Дата выдачи:
+							div(class="calc__input-cont")
+								input(type="text" v-model="nextDate" readonly="readonly" class="calc__input")
+								label(class="calc__label") Дата погашения:
+							div(class="calc__input-cont")
+								select(type="text" v-model.number="curOtsrok" class="calc__input")
+									option(:value="0") Нет
+									option(:value="i" v-for="i in maxOtsrok") {{ i }}
+								label(class="calc__label") Отсрочка(мес):
+							div(class="calc__input-cont calc__input-cont--button")
+								div(@click="print()" class="calc-btn") Печать графика платежей
+						div(class="calc__table")
+							table(class="calc-table")
+								thead
+									tr
+										th Номер платежа
+										th Дата платежа
+										th Всего
+										th В погашение долга
+										th В погашение процентов
+										th Остаток долга после платежа
+									tr
+										th(colspan="2") Всего
+										th {{ vsego }}
+										th {{ itog }}
+										th {{ pereplata }}
+										th 
+								tbody
+									tr(v-for="(row, i) in tableArr")
+										td {{ i+1 }}
+										td {{ row.date }}
+										td {{ partitionNumber(row.itog) }}
+										td {{ partitionNumber(row.forDolg) }}
+										td {{ partitionNumber(row.forPersents) }}
+										td {{ partitionNumber(row.ostatok) }}
